@@ -1,0 +1,42 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> society visitors </title>  
+
+<a class="nav-link collapsed" href="{% url 'index' %}">
+    <i class="bi bi-person"></i>
+    <span> Back </span>
+</a>
+<body> 
+    <br>
+    {% for use in visitors %}
+    <div class="card">
+        <div class="card-body pt-3">
+            {% comment %} <div class="tab-pane fade show active profile-overview" id="profile-overview"> {% endcomment %}
+            <h5 class="card-title">Visitors Details</h5>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label ">Visitor Name</div>
+                <div class="col-lg-9 col-md-8">{{use.visitor_name}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label">Visit Date And Time</div>
+                <div class="col-lg-9 col-md-8">{{use.visit_date_and_time}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label">Exit Time</div>
+                <div class="col-lg-9 col-md-8">{{use.exit_time}}</div>
+            </div>
+         </div>
+    </div>
+{%endfor%}    
+</body>     
+</html>  
+
+{%endblock%}

@@ -1,0 +1,44 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> society Event  </title>   
+<a class="nav-link collapsed" href="{% url 'index' %}">
+    <i class="bi bi-person"></i>
+    <span> Back </span>
+</a>
+<body> 
+    <br>
+       
+    {% for us in events %}
+    <div class="card">
+        {% comment %} <br> {% endcomment %}
+        <div class="card-body pt-3">
+            {% comment %} <div class="tab-pane fade show active profile-overview" id="profile-overview"> {% endcomment %}
+            <h5 class="card-title">Event Details</h5>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label ">Event Name</div>
+                <div class="col-lg-9 col-md-8">{{us.event_name}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label">Event Date</div>
+                <div class="col-lg-9 col-md-8">{{us.event_date}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 label">Event information</div>
+                <div class="col-lg-9 col-md-8">{{us.event_information}}</div>
+            </div>
+         </div>
+    </div>
+{%endfor%}    
+</body>     
+</html>  
+
+{%endblock%}
+
